@@ -7,12 +7,12 @@ import { MainComponent } from './components/main/main.component';
 const routes: Routes = [
   {
     path: '',
-    component: DashboardComponent,
+    component: MainComponent,
     children: [
       {
         path: '',
         children: [
-          { path: 'main', component: MainComponent },
+          { path: 'main', component: DashboardComponent },
           { path: '**', pathMatch: 'full', redirectTo: 'main' },
         ]
       }
