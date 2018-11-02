@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './app.routes';
+import { NotyfModule } from 'ng-notyf';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { AppRoutingModule } from './app.routes';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NotyfModule
   ],
   providers: [],
   bootstrap: [AppComponent]
