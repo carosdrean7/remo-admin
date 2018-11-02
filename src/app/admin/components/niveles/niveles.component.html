@@ -1,3 +1,118 @@
-<p>
-  niveles works!
-</p>
+<div class="content-wrapper">
+  <div class="row">
+    <div class="col-12 grid-margin">
+      <div class="card">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card-body">
+              <div class="template-demo">
+                <button routerLink="main" type="button" class="btn btn-icons btn-rounded btn-light">
+                  <i class="mdi mdi-home-outline"></i>
+                </button>
+                <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModal-3"
+                  (click)="limpiar()">Agregar</button>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-12 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Lista de Almacenes</h4>
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Precio</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let nivel of _ns.items; let i = index" [attr.data-index]="i">
+                  <td>{{nivel.nombre}}</td>
+                  <td>{{nivel.precio}}</td>
+                  <td>
+                    <label class="badge badge-success" data-toggle="modal" data-target="#exampleModal-3" (click)="editar(nivel)"
+                      style="margin-right: 5px; cursor: pointer;">Editar</label>
+                    <label class="badge badge-danger" style="cursor: pointer;" (click)="alerta(nivel._id)">Eliminar</label>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal-3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel-3" style="display: none;">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="padding: 1.7em;">
+        <h5 class="modal-title" id="exampleModalLabel">{{caso}} Nivel</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body" style="padding: 1.7em;">
+        <form class="forms-sample">
+          <div class="form-group">
+            <label for="exampleInputName1">Nombre</label>
+            <input type="text" name="nombre" class="form-control" [(ngModel)]="nivel.nombre" id="exampleInputName1"
+              placeholder="Almacen">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputName1">Precio</label>
+            <input type="text" name="precio" class="form-control" [(ngModel)]="nivel.precio" id="exampleInputName1"
+              placeholder="Codigo">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-dismiss="modal" (click)="addItem(nivel)">Guardar</button>
+        <button type="button" class="btn btn-light" data-dismiss="modal" (click)="limpiar()">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="swal-overlay delete-item" tabindex="-1">
+  <div class="swal-modal" role="dialog" aria-modal="true">
+    <div class="swal-icon swal-icon--warning">
+      <span class="swal-icon--warning__body">
+        <span class="swal-icon--warning__dot"></span>
+      </span>
+    </div>
+    <div class="swal-title">¿Estas seguro?</div>
+    <div class="swal-text">Los datos no se podran recuperar.</div>
+    <div class="swal-footer">
+      <div class="swal-button-container">
+
+        <button class="swal-button swal-button--cancel btn btn-danger" (click)="limpiar()">Cancelar</button>
+
+        <div class="swal-button__loader">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+
+      </div>
+      <div class="swal-button-container">
+
+        <button class="swal-button swal-button--confirm btn btn-primary" (click)="deleteItem()">OK</button>
+
+        <div class="swal-button__loader">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

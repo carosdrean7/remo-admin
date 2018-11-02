@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './app.routes';
 import { NotyfModule } from 'ng-notyf';
+import { HttpClientModule } from '@angular/common/http';
+import { NivelesService } from './providers/niveles.service';
 
 @NgModule({
   declarations: [
@@ -14,9 +16,12 @@ import { NotyfModule } from 'ng-notyf';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     NotyfModule
   ],
-  providers: [],
+  providers: [
+    NivelesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
