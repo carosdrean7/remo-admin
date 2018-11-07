@@ -33,7 +33,7 @@ export interface Nosotros {
     vision: string;
     historia: string;
 }
-export interface PersonaAdministrativa {
+export interface Directiva {
     _id?: string;
     gradoAcademico: string;
     photoUrl: string;
@@ -64,7 +64,7 @@ export interface Grado {
     _id?: string;
     _idNivel?: string;
     nombre: string;
-    truno: string;
+    turno: string;
 }
 
 export interface Curso {
