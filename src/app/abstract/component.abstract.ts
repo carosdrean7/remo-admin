@@ -1,6 +1,8 @@
 import { Servicio } from './servicio.abstract';
 import { NotyfService } from 'ng-notyf';
 
+declare var $: any;
+
 export abstract class Componente {
 
   _idEditar: string;
@@ -75,6 +77,7 @@ export abstract class Componente {
   }
 
   alerta(key) {
+    $('.swal-overlay').addClass('swal-overlay--show-modal');
     this._idEliminar = key;
   }
 

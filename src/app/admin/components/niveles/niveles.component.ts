@@ -16,12 +16,13 @@ export class NivelesComponent extends Componente implements OnInit {
   caso;
   nivel: Nivel;
 
-  constructor(_ns: NivelesService, notif: NotyfService) {
+  constructor(public _ns: NivelesService,private  notif: NotyfService) {
     super(_ns, notif);
     this.caso = 'Nuevo';
   }
 
   ngOnInit() {
+    this.loadScript();
   }
 
   editar(nivel: Nivel) {
