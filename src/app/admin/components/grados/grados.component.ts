@@ -16,7 +16,7 @@ export class GradosComponent extends Componente implements OnInit {
   caso;
   grado: Grado;
 
-  constructor(public _gs: GradosService,private  notif: NotyfService) {
+  constructor(public _gs: GradosService, private  notif: NotyfService) {
     super(_gs, notif);
     this.caso = 'Nuevo';
   }

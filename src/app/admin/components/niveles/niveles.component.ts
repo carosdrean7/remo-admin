@@ -33,6 +33,7 @@ export class NivelesComponent extends Componente implements OnInit {
   }
 
   resetearItem() {
+    this.caso = 'Agregar';
     this.nivel = {
       nombre: '',
       precio: ''
